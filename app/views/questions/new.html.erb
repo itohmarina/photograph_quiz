@@ -1,0 +1,35 @@
+<h1>作成したクイズ</h1>
+<p><%= @quiz.answer %></p>
+<p><%= @quiz.explanation %></p>
+<p><%= image_tag @quiz.answer_image, size:"200x200" %></p>
+<p>問題文：<%= @quiz.q_sentence %></p>
+
+<h2>作成した小問題</h2>
+<% if @questions.present? %>
+  <% @questions.each do |question| %>
+    <p>問い:<%= question.q_sentence %></p>
+    <p>
+      選択肢:
+      <% question.choices.each do |choice| %>
+        ・<%= choice.body %>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<h2>新しい小問題を投稿</h2>
+<% if @questions.present? && @questions.count >= 9 %>
+  小問題はクイズ1つに対して9問までなので、新たに投稿できません。
+  <%= link_to "クイズ画面に戻る", root_path %>
+<% else %>
+  <%= form_with model:[@quiz, @question], method: :post do |f| %>
+    <h4>問題文</h4>
+    <%= f.text_area :q_sentence %><br>
+    <h4>選択肢</h4>
+    正解の選択肢→<%= f.text_field :body_1 %>、
+    <%= f.text_field :body_2 %>、
+    <%= f.text_field :body_3 %><br>
+
+    <%= f.submit '投稿' %>
+  <% end %>
+<% end %>

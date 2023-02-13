@@ -1,16 +1,21 @@
 <h1>新しいクイズ投稿</h1>
 
-<%= form_with model: @quiz, quizzes_path, method: :post do |f| %>
+<%= form_with model: @quiz, method: :post do |f| %>
 
-<h4>答え</h4>
-<%= f.text_field :answer %>
+  <div>
+    <h4>答え</h4>
+    <%= f.text_field :answer %><br>
 
-<h4>解説文</h4>
-<%= f.text_area :body %>
+    <h4>解説文</h4>
+    <%= f.text_area :explanation %><br>
 
-<h4>画像</h4>
-<%= f.file_field :image, accept: "image/*" %>
+    <h4>画像</h4>
+    <%= f.file_field :answer_image, accept: "image/*" %><br>
 
-<%= f.submit '投稿' %>
+    <h4>問題文</h4>
+    <%= f.text_field :q_sentence %><br>
+  </div>
+
+  <%= f.submit '投稿' %>
 
 <% end %>
