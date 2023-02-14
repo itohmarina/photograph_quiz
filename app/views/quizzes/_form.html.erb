@@ -1,0 +1,5 @@
+<% form_with url:"/quizzes/judge", local: true, method: :get do |f| %>
+  <%= f.hidden_field :quiz_id, :value => quiz.id %>
+  <%= f.text_field :word, placeholder:"答えを入れてください" %>
+  <%= f.submit "投稿" %>
+<% end %>

@@ -1,3 +1,58 @@
-<h1>Quizzes#show</h1>
-<p>Find me in app/views/quizzes/show.html.erb</p>
-<%= link_to "新しいクイズを作成する", new_quiz_path %>
+<div class="title">
+  <h1>写真を見て名前を答えるクイズ</h1>
+  <%= link_to "新しいクイズを作成する", new_quiz_path %>
+</div>
+
+<div class="quiz">
+    <div>
+    　<div id="photograph">
+        <%= image_tag @quiz.answer_image, size:"500x500" %>
+    　</div>
+    　<div id="boxes">
+    　     <div id="box_0" class="box"></div>
+    　     <div id="box_1" class="box"></div>
+    　     <div id="box_2" class="box"></div>
+    　     <div id="box_3" class="box"></div>
+    　     <div id="box_4" class="box"></div>
+    　     <div id="box_5" class="box"></div>
+    　     <div id="box_6" class="box"></div>
+    　     <div id="box_7" class="box"></div>
+    　     <div id="box_8" class="box"></div>
+    　</div>
+      <div class="quiz_sentence">
+        <div>問題:<%= @quiz.q_sentence %></div>
+        <div class="quiz_form">
+          <%= render "quizzes/form", quiz: @quiz %>
+        </div>
+      </div>
+    </div>
+    <div id="answer" >
+      <h3>答え:<%= @quiz.answer %></h3>
+      <p><%= @quiz.explanation %></p>
+      
+      <div id="answer_box">
+        <h3>答えを見る</h3>
+      </div>
+      
+    </div>
+</div>
+<div id="questions">
+  <% @questions.each_with_index do |question, i| %>
+    <div id="question_#{i.to_s}" class="question_box">
+      <%= question.q_sentence %>
+        <div class="choices">
+          <% question.choices do |choice| %>
+            <% if choice.is_answer == true %>
+              <div id="true_choice_#{i.to_s}">
+                <%= choice.body %>
+              </div>
+            <% else %>
+              <div>
+                <%= choice.body %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+    </div> 
+  <% end %>
+</div>

@@ -1,7 +1,8 @@
 class QuizzesController < ApplicationController
 
   def show
-    @quiz = Quiz.order("RAND()").limit(1)
+    @quiz = Quiz.order("RANDOM()").first
+    @questions = @quiz.questions
   end
 
   def new
@@ -25,6 +26,13 @@ class QuizzesController < ApplicationController
 
   def index
     @quizzes = Quiz.all
+  end
+
+  def judge
+    @quiz = Quiz.find(params[:quiz_id])
+    unless @quiz.answer == params[:word]
+      redirect_to request.referer
+    end
   end
 
 

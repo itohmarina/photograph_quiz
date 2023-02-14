@@ -20,7 +20,7 @@
 <h2>新しい小問題を投稿</h2>
 <% if @questions.present? && @questions.count >= 9 %>
   小問題はクイズ1つに対して9問までなので、新たに投稿できません。
-  <%= link_to "クイズ画面に戻る", root_path %>
+  <%= link_to "クイズ画面に戻る", root_path, 'data-turbolinks': false %>
 <% else %>
   <%= form_with model:[@quiz, @question], method: :post do |f| %>
     <h4>問題文</h4>
