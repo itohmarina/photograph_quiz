@@ -6,19 +6,19 @@
 <div class="quiz">
     <div>
     　<div id="photograph">
-        <%= image_tag @quiz.answer_image, size:"500x500" %>
-    　</div>
-    　<div id="boxes">
-    　     <div id="box_0" class="box"></div>
-    　     <div id="box_1" class="box"></div>
-    　     <div id="box_2" class="box"></div>
-    　     <div id="box_3" class="box"></div>
-    　     <div id="box_4" class="box"></div>
-    　     <div id="box_5" class="box"></div>
-    　     <div id="box_6" class="box"></div>
-    　     <div id="box_7" class="box"></div>
-    　     <div id="box_8" class="box"></div>
-    　</div>
+        <%= image_tag @quiz.answer_image, size:"350x350" %>
+      　<div id="boxes">
+      　     <div id="box_0" class="box"></div>
+      　     <div id="box_1" class="box"></div>
+      　     <div id="box_2" class="box"></div>
+      　     <div id="box_3" class="box"></div>
+      　     <div id="box_4" class="box"></div>
+      　     <div id="box_5" class="box"></div>
+      　     <div id="box_6" class="box"></div>
+      　     <div id="box_7" class="box"></div>
+      　     <div id="box_8" class="box"></div>
+      　</div>
+      </div>
       <div class="quiz_sentence">
         <div>問題:<%= @quiz.q_sentence %></div>
         <div class="quiz_form">
@@ -29,21 +29,21 @@
     <div id="answer" >
       <h3>答え:<%= @quiz.answer %></h3>
       <p><%= @quiz.explanation %></p>
-      
+
       <div id="answer_box">
         <h3>答えを見る</h3>
       </div>
-      
+
     </div>
 </div>
 <div id="questions">
   <% @questions.each_with_index do |question, i| %>
-    <div id="question_#{i.to_s}" class="question_box">
+    <div id="question_<%= i %>" class="question_box question_hide">
       <%= question.q_sentence %>
         <div class="choices">
-          <% question.choices do |choice| %>
+          <% question.choices.each do |choice| %>
             <% if choice.is_answer == true %>
-              <div id="true_choice_#{i.to_s}">
+              <div class="true_choice_<%= i %>">
                 <%= choice.body %>
               </div>
             <% else %>
@@ -53,6 +53,8 @@
             <% end %>
           <% end %>
         </div>
-    </div> 
+    </div>
   <% end %>
 </div>
+
+<!--<script type="text/javascript" src="quiz.js"></script>-->

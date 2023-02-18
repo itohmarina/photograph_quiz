@@ -2,7 +2,7 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.order("RANDOM()").first
-    @questions = @quiz.questions
+    @questions = @quiz.questions.includes(:choices)
   end
 
   def new
