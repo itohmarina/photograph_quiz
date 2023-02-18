@@ -46,11 +46,12 @@ div{
   column-gap: 0;
 }
 
-.box {
+#boxes > div {
   /*display: none;*/
   background-color: #FFFFFF;
   height: 119px;
   width: 119px;
+  border: solid 3px black;
 }
 
 #box_0{
@@ -149,7 +150,7 @@ div{
 }
 
 .question_box{
-  position: absolute;
+  // position: absolute;
   top: 0px;
   left: 0px;
   width: 400px;

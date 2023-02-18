@@ -38,7 +38,7 @@
 </div>
 <div id="questions">
   <% @questions.each_with_index do |question, i| %>
-    <div id="question_<%= i %>" class="question_box question_hide">
+    <div id="question_<%= i %>" class="question_box question_hide q<%= i %>">
       <%= question.q_sentence %>
         <div class="choices">
           <% question.choices.each do |choice| %>
