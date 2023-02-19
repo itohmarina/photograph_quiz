@@ -128,55 +128,55 @@ $(function () {
 
 
 $(function(){
-  $(document).on('click', "#true_chice_0", function(){
+  $(document).on('click', "#true_choice_0", function(){
     $("#box_0").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_1", function(){
+  $(document).on('click', "#true_choice_1", function(){
     $("#box_1").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_2", function(){
+  $(document).on('click', "#true_choice_2", function(){
     $("#box_2").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_3", function(){
+  $(document).on('click', "#true_choice_3", function(){
     $("#box_3").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_4", function(){
+  $(document).on('click', "#true_choice_4", function(){
     $("#box_4").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_5", function(){
+  $(document).on('click', "#true_choice_5", function(){
     $("#box_5").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_6", function(){
+  $(document).on('click', "#true_choice_6", function(){
     $("#box_6").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_7", function(){
+  $(document).on('click', "#true_choice_7", function(){
     $("#box_7").slideUp();
   });
 });
 
 $(function(){
-  $(document).on('click', "#true_chice_8", function(){
+  $(document).on('click', "#true_choice_8", function(){
     $("#box_8").slideUp();
   });
 });

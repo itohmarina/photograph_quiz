@@ -43,7 +43,7 @@
         <div class="choices">
           <% question.choices.each do |choice| %>
             <% if choice.is_answer == true %>
-              <div class="true_choice_<%= i %>">
+              <div id="true_choice_<%= i %>">
                 <%= choice.body%>
               </div>
             <% else %>
