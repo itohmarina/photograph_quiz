@@ -46,7 +46,7 @@ div{
   column-gap: 0;
 }
 
-#boxes > div {
+.box {
   /*display: none;*/
   background-color: #FFFFFF;
   height: 119px;
@@ -128,6 +128,7 @@ div{
   position: relative;
   width: 250px;
   height: 500px;
+  margin-left: 30px;
 }
 
 #answer_box{
@@ -136,7 +137,11 @@ div{
   left: 0px;
   background-color: #FFFFFF;
   width: 250px;
-  height: 500px;
+  height: 400px;
+}
+
+#answer_box:hover{
+  background-color: #EEEEEE;
 }
 
 .quiz_sentence{
@@ -165,4 +170,17 @@ div{
   display: flex;
   margin-top: 10px;
   justify-content: space-between;
+}
+
+.choices > div{
+  width: 100px;
+  height: 30px;
+  padding: auto ;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #EEEEEE;
+}
+
+.choices > div:hover {
+  background-color: #CCCCCC;
 }

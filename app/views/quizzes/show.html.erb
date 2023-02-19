@@ -38,13 +38,13 @@
 </div>
 <div id="questions">
   <% @questions.each_with_index do |question, i| %>
-    <div id="question_<%= i %>" class="question_box question_hide q<%= i %>">
+    <div id="question_<%= i %>" class="question_box question_hide">
       <%= question.q_sentence %>
         <div class="choices">
           <% question.choices.each do |choice| %>
             <% if choice.is_answer == true %>
               <div class="true_choice_<%= i %>">
-                <%= choice.body %>
+                <%= choice.body%>
               </div>
             <% else %>
               <div>
