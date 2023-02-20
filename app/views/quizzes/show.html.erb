@@ -1,6 +1,18 @@
 <div class="title">
   <h1>写真を見て名前を答えるクイズ</h1>
-  <%= link_to "新しいクイズを作成する", new_quiz_path %>
+
+  <% if user_signed_in? %>
+    <div class="admin_root">
+      <%= link_to "新しいクイズを作成する", new_quiz_path %>
+      <%= link_to "クイズ一覧", quizzes_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+  <% else %>
+    <div class="admin_root">
+      <%= link_to "管理者ログイン", new_user_session_path %>
+    </div>
+  <% end %>
+
 </div>
 
 <div class="quiz">

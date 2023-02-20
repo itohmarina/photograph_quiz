@@ -23,6 +23,18 @@ class QuestionsController < ApplicationController
 
       redirect_to new_quiz_question_path(@quiz.id)
     else
+      @questions = @quiz.questions
+      render "questions/new"
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @quiz = @question.quiz
+    if @question.destroy
+      redirect_to new_quiz_question_path(@quiz.id)
+    else
+      @questions = @quiz.questions
       render "questions/new"
     end
   end

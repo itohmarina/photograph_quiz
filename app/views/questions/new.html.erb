@@ -1,4 +1,5 @@
 <h1>作成したクイズ</h1>
+<h4>※クイズが不完全にならないよう、小問題は9問すべて登録してください</h4>
 <p><%= @quiz.answer %></p>
 <p><%= @quiz.explanation %></p>
 <p><%= image_tag @quiz.answer_image, size:"200x200" %></p>
@@ -7,13 +8,18 @@
 <h2>作成した小問題</h2>
 <% if @questions.present? %>
   <% @questions.each do |question| %>
-    <p>問い:<%= question.q_sentence %></p>
-    <p>
-      選択肢:
-      <% question.choices.each do |choice| %>
-        ・<%= choice.body %>
-      <% end %>
-    </p>
+    <div class="index_questions">
+      <div>
+        <span>問い:<%= question.q_sentence %></span><br>
+        <span>
+          選択肢:
+          <% question.choices.each do |choice| %>
+            ・<%= choice.body %>
+          <% end %>
+        </span>
+      </div>
+      <div class="question_destroy"><%= link_to "小問題を削除する", quiz_question_path(quiz_id: @quiz.id, id: question.id), method: :delete %></div>
+    </div>
   <% end %>
 <% end %>
 

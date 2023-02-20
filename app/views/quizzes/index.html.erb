@@ -1,0 +1,15 @@
+<h1>作成したクイズ一覧</h1>
+<div><%= link_to "クイズ画面に戻る", root_path, 'data-turbolinks': false %></div>
+<table>
+  <tbody>
+    <% if @quizzes.present? %>
+      <% @quizzes.each do |quiz| %>
+        <tr>
+          <td><%= image_tag quiz.answer_image, size:"100x100" %></td>
+          <td><%= link_to quiz.answer, new_quiz_question_path(quiz_id: quiz.id) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+

@@ -27,6 +27,10 @@ div{
   height: 100px;
 }
 
+.admin_root{
+  text-align: right;
+}
+
 .quiz{
   display: flex;
 }
@@ -183,4 +187,15 @@ div{
 
 .choices > div:hover {
   background-color: #CCCCCC;
+}
+
+.index_questions{
+  display: flex;
+  width: 800px;
+  margin: 30px 0;
+}
+
+.question_destroy{
+  width: 200px;
+  margin-left: auto;
 }
