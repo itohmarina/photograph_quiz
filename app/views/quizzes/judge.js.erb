@@ -1,0 +1,4 @@
+$(document).ready(function(){
+  $('#quiz_form').html("<%= j(render "quizzes/form", quiz: @quiz) %>");
+  $(".text_field").val(""); 
+  });

@@ -1,0 +1,9 @@
+$(document).ready(function(){
+  $('#quiz_form').html("<%= j(render "quizzes/form", quiz: @quiz) %>");
+  $(".text_field").val("正解です！おめでとう");
+  <!--$('#quiz_form').html("正解です！おめでとうございます！").css({'color: red'});-->
+});
+
+$(document).ready(function(){
+  $('#boxes .box').slideUp();
+});

@@ -28,10 +28,11 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
 
+
   def judge
     @quiz = Quiz.find(params[:quiz_id])
-    unless @quiz.answer == params[:word]
-      redirect_to request.referer
+    if @quiz.answer == params[:word]
+     render "quizzes/correct.js.erb" 
     end
   end
 
