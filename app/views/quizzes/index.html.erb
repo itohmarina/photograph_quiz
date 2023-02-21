@@ -1,5 +1,9 @@
 <h1>作成したクイズ一覧</h1>
-<div><%= link_to "クイズ画面に戻る", root_path, 'data-turbolinks': false %></div>
+<div>
+  <%= link_to "クイズ画面に戻る", root_path, 'data-turbolinks': false %>
+  <%= link_to "新しいクイズを作成する", new_quiz_path %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+</div>
 <table>
   <tbody>
     <% if @quizzes.present? %>
@@ -7,6 +11,7 @@
         <tr>
           <td><%= image_tag quiz.answer_image, size:"100x100" %></td>
           <td><%= link_to quiz.answer, new_quiz_question_path(quiz_id: quiz.id) %></td>
+          <td><%= link_to "クイズを削除する", quiz_path(quiz.id), method: :delete %></td>
         </tr>
       <% end %>
     <% end %>

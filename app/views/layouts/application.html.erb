@@ -13,6 +13,9 @@
   <body>
     <!--<script src="jquery.min.js"></script>-->
     <!--<script src="quiz.js"></script>-->
+    <div>
+      <%= flash[:notice] %>
+    </div>
     <div id="main">
       <%= yield %>
     </div>

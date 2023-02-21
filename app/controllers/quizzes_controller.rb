@@ -12,13 +12,10 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    unless params[:answer_image].present?
-      render "quizzes/new"
-    end
     @quiz = Quiz.new(quiz_params)
     if @quiz.save
       @question = Question.new
-      redirect_to new_quiz_question_path(@quiz.id)
+      redirect_to new_quiz_question_path(quiz_id: @quiz.id) and return
     else
       render "quizzes/new"
     end
@@ -32,7 +29,14 @@ class QuizzesController < ApplicationController
   def judge
     @quiz = Quiz.find(params[:quiz_id])
     if @quiz.answer == params[:word]
-     render "quizzes/correct.js.erb" 
+     render "quizzes/correct.js.erb"
+    end
+  end
+
+  def destroy
+    @quiz = Quiz.find(params[:id])
+    if @quiz.destroy
+      redirect_to quizzes_path, notice: 'クイズが削除されました'
     end
   end
 

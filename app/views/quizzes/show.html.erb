@@ -37,6 +37,7 @@
           <%= render "quizzes/form", quiz: @quiz %>
         </div>
       </div>
+      <div><%= link_to "別のクイズを解く", root_path, 'data-turbolinks': false %></div>
     </div>
     <div id="answer" >
       <h3>答え:<%= @quiz.answer %></h3>
