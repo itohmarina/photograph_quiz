@@ -54,7 +54,7 @@
     <div id="question_<%= i %>" class="question_box question_hide">
       <%= question.q_sentence %>
         <div class="choices">
-          <% question.choices.order("RANDOM()").each do |choice| %>
+          <% question.choices.order("RAND()").each do |choice| %>
             <% if choice.is_answer == true %>
               <div id="true_choice_<%= i %>">
                 <%= choice.body%>
